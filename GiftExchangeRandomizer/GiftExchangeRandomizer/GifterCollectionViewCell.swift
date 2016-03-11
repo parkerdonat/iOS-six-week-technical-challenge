@@ -10,4 +10,5 @@ import UIKit
 
 class GifterCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var gifterName: UILabel!
 }

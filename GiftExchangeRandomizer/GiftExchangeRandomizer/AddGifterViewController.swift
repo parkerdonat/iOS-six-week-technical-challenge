@@ -10,6 +10,7 @@ import UIKit
 
 class AddGifterViewController: UIViewController {
 
+    @IBOutlet weak var textField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +22,13 @@ class AddGifterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func addGifterButtonTapped(sender: AnyObject) {
+        
+    }
 
+    @IBAction func cancelButtonTapped(sender: AnyObject) {
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ozk-Fn-U3F">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Gift Exchange Randomizer-->
         <scene sceneID="eGq-Nl-uZc">
             <objects>
-                <viewController id="4HN-x6-tWv" sceneMemberID="viewController">
+                <viewController id="4HN-x6-tWv" customClass="GifterListViewController" customModule="GiftExchangeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="m2m-hh-XiA"/>
                         <viewControllerLayoutGuide type="bottom" id="Rsa-kd-IwM"/>
@@ -17,44 +18,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WYW-C5-aEW">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WYW-C5-aEW">
                                 <rect key="frame" x="0.0" y="522" width="600" height="78"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6U-dY-beh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6U-dY-beh">
                                         <rect key="frame" x="169" y="14" width="263" height="50"/>
-                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="263" id="JTQ-yH-c4j"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="27"/>
                                         <state key="normal" title="Randomize Gifters!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="2g8-UY-cJZ"/>
+                                    <constraint firstItem="V6U-dY-beh" firstAttribute="top" secondItem="WYW-C5-aEW" secondAttribute="top" constant="14" id="meN-eN-edb"/>
+                                    <constraint firstItem="V6U-dY-beh" firstAttribute="centerY" secondItem="WYW-C5-aEW" secondAttribute="centerY" id="vtV-7O-7Kk"/>
+                                    <constraint firstAttribute="width" constant="600" id="x2Q-Ap-lJ4"/>
+                                    <constraint firstItem="V6U-dY-beh" firstAttribute="centerX" secondItem="WYW-C5-aEW" secondAttribute="centerX" id="yU7-Do-S4H"/>
+                                </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EfN-ga-dkE">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="514"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8It-pV-4q5">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EfN-ga-dkE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="523" id="11a-xv-Hyx"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8It-pV-4q5" userLabel="Flow Layout">
                                     <size key="itemSize" width="281" height="70"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gifterCell" id="BcA-6t-i5c">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gifterCell" id="BcA-6t-i5c" customClass="GifterCollectionViewCell" customModule="GiftExchangeRandomizer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="64" width="281" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="281" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gifter Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHs-Rl-LgC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gifter Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHs-Rl-LgC">
                                                     <rect key="frame" x="8" y="8" width="265" height="54"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                                    <color key="textColor" red="0.31481724620000001" green="0.6754448529" blue="0.38933155159999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="EHs-Rl-LgC" firstAttribute="bottom" secondItem="BcA-6t-i5c" secondAttribute="bottomMargin" id="4IG-zI-23r"/>
+                                            <constraint firstItem="EHs-Rl-LgC" firstAttribute="top" secondItem="BcA-6t-i5c" secondAttribute="topMargin" id="VR2-w7-l2Y"/>
+                                            <constraint firstItem="EHs-Rl-LgC" firstAttribute="leading" secondItem="BcA-6t-i5c" secondAttribute="leadingMargin" id="kxS-fl-0i5"/>
+                                            <constraint firstItem="EHs-Rl-LgC" firstAttribute="trailing" secondItem="BcA-6t-i5c" secondAttribute="trailingMargin" id="xx4-Eh-BVo"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="gifterName" destination="EHs-Rl-LgC" id="WDZ-hR-NVn"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -64,19 +88,36 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rsa-kd-IwM" firstAttribute="top" secondItem="WYW-C5-aEW" secondAttribute="bottom" id="827-oJ-ggV"/>
+                            <constraint firstAttribute="trailing" secondItem="WYW-C5-aEW" secondAttribute="trailing" id="KbB-Af-Fss"/>
+                            <constraint firstItem="WYW-C5-aEW" firstAttribute="leading" secondItem="K4Q-3D-3Dv" secondAttribute="leading" id="XWc-sh-UfN"/>
+                            <constraint firstItem="WYW-C5-aEW" firstAttribute="top" secondItem="EfN-ga-dkE" secondAttribute="bottom" constant="-1" id="cky-ec-wU7"/>
+                            <constraint firstAttribute="trailing" secondItem="EfN-ga-dkE" secondAttribute="trailing" id="jP0-FF-5SB"/>
+                            <constraint firstItem="EfN-ga-dkE" firstAttribute="top" secondItem="K4Q-3D-3Dv" secondAttribute="top" id="ycq-0R-bDz"/>
+                            <constraint firstItem="EfN-ga-dkE" firstAttribute="leading" secondItem="K4Q-3D-3Dv" secondAttribute="leading" id="zRe-WV-kOy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Gift Exchange Randomizer" id="pGj-Qu-0WA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wc3-31-twS"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wc3-31-twS">
+                            <connections>
+                                <segue destination="Ecg-AZ-Lrb" kind="presentation" identifier="addGifter" id="YJX-vx-JNH"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="collectionView" destination="EfN-ga-dkE" id="Waq-j3-pUQ"/>
+                        <outlet property="flowLayout" destination="8It-pV-4q5" id="cMy-fS-kdB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="med-lE-LYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2797" y="377"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Gifter View Controller-->
         <scene sceneID="kKC-OY-voV">
             <objects>
-                <viewController id="Ecg-AZ-Lrb" sceneMemberID="viewController">
+                <viewController id="Ecg-AZ-Lrb" customClass="AddGifterViewController" customModule="GiftExchangeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aCI-rv-Q0c"/>
                         <viewControllerLayoutGuide type="bottom" id="0nc-CC-NmY"/>
@@ -96,16 +137,25 @@
                                 <state key="normal" title="Add Gifter">
                                     <color key="titleColor" red="0.31481724620000001" green="0.6754448529" blue="0.38933155159999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="addGifterButtonTapped:" destination="Ecg-AZ-Lrb" eventType="touchUpInside" id="ylP-cu-bx4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1By-NQ-elg">
                                 <rect key="frame" x="276" y="493" width="48" height="30"/>
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="Ecg-AZ-Lrb" eventType="touchUpInside" id="HHp-1C-Phe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="8UC-fn-d8w" id="uUs-5O-Dc1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KH2-XW-114" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

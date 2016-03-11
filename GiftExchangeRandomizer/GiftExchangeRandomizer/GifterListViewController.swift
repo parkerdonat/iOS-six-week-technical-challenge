@@ -9,18 +9,48 @@
 import UIKit
 
 class GifterListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-    var gifters = ["Parker", "Kaleo", "Daniel", "Caleb"]
+    
+    private let kMargin = CGFloat(0.0)
+    
+    var gifters = ["Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb"]
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        flowLayout.sectionInset = UIEdgeInsetsMake(kMargin, kMargin, kMargin, kMargin)
+        
+        flowLayout.minimumLineSpacing = 0
+        flowLayout.minimumInteritemSpacing = 0
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - Collection View Delegate Flow Layout
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        // Determin how big our screen is
+        
+//        let viewWidth = view.frame.width
+//        let viewWidthMinusMargin = viewWidth - 2 * kMargin
+        
+//        let itemDimensionWidth = viewWidthMinusMargin / 2.0 // determines how many cells are dsiplayed
+        
+//        
+//        let viewHeight = view.frame.width
+//        let viewHeightMinusMargin = viewHeight - 2 * kMargin
+//        
+//        let itemDemensionHeight = viewHeightMinusMargin
+        
+        return CGSizeMake(200, 50)
+        
     }
     
     
@@ -28,7 +58,7 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-         return gifters.count
+        return gifters.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -38,23 +68,22 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         
         // configure the cell
         let gifter = gifters[indexPath.item]
-        
-        //gifterCell.t = text
+        gifterCell.gifterName.text = gifter
         
         return gifterCell
         
     }
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
 
  
