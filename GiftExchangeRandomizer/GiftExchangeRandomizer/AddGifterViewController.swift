@@ -41,9 +41,9 @@ class AddGifterViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    func updateWithGifterName(name: Gifter) {
-        self.gifter = name
-        self.textField.text = name.name
+    func updateWithGifterName(gifter: Gifter) {
+        self.gifter = gifter
+        self.textField.text = gifter.name
     }
     /*
     // MARK: - Navigation

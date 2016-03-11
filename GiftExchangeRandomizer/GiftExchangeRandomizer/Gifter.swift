@@ -24,7 +24,6 @@ class Gifter: Equatable {
             
             return nil
         }
-        
         self.name = name
     }
     
