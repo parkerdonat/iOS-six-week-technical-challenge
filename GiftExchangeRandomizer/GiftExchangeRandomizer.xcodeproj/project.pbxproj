@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		DDF5939B1C932A4200EFB279 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5939A1C932A4200EFB279 /* AppDelegate.swift */; };
-		DDF5939D1C932A4200EFB279 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5939C1C932A4200EFB279 /* ViewController.swift */; };
 		DDF593A01C932A4200EFB279 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF5939E1C932A4200EFB279 /* Main.storyboard */; };
 		DDF593A21C932A4200EFB279 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF593A11C932A4200EFB279 /* Assets.xcassets */; };
 		DDF593A51C932A4200EFB279 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDF593A31C932A4200EFB279 /* LaunchScreen.storyboard */; };
+		DDF593AD1C933CC400EFB279 /* GifterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593AC1C933CC400EFB279 /* GifterListViewController.swift */; };
+		DDF593AF1C933DD400EFB279 /* GifterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593AE1C933DD400EFB279 /* GifterCollectionViewCell.swift */; };
+		DDF593B11C933EA200EFB279 /* Gifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B01C933EA200EFB279 /* Gifter.swift */; };
+		DDF593B31C933EB200EFB279 /* GifterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B21C933EB200EFB279 /* GifterController.swift */; };
+		DDF593B61C933ECD00EFB279 /* RandomizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B51C933ECD00EFB279 /* RandomizeController.swift */; };
+		DDF593B81C933EEC00EFB279 /* AddGifterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B71C933EEC00EFB279 /* AddGifterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DDF593971C932A4200EFB279 /* GiftExchangeRandomizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftExchangeRandomizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF5939A1C932A4200EFB279 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDF5939C1C932A4200EFB279 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDF5939F1C932A4200EFB279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDF593A11C932A4200EFB279 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDF593A41C932A4200EFB279 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDF593A61C932A4200EFB279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDF593AC1C933CC400EFB279 /* GifterListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifterListViewController.swift; sourceTree = "<group>"; };
+		DDF593AE1C933DD400EFB279 /* GifterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifterCollectionViewCell.swift; sourceTree = "<group>"; };
+		DDF593B01C933EA200EFB279 /* Gifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gifter.swift; sourceTree = "<group>"; };
+		DDF593B21C933EB200EFB279 /* GifterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifterController.swift; sourceTree = "<group>"; };
+		DDF593B51C933ECD00EFB279 /* RandomizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizeController.swift; sourceTree = "<group>"; };
+		DDF593B71C933EEC00EFB279 /* AddGifterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGifterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +65,12 @@
 			isa = PBXGroup;
 			children = (
 				DDF5939A1C932A4200EFB279 /* AppDelegate.swift */,
-				DDF5939C1C932A4200EFB279 /* ViewController.swift */,
+				DDF593AC1C933CC400EFB279 /* GifterListViewController.swift */,
+				DDF593AE1C933DD400EFB279 /* GifterCollectionViewCell.swift */,
+				DDF593B71C933EEC00EFB279 /* AddGifterViewController.swift */,
+				DDF593B01C933EA200EFB279 /* Gifter.swift */,
+				DDF593B21C933EB200EFB279 /* GifterController.swift */,
+				DDF593B51C933ECD00EFB279 /* RandomizeController.swift */,
 				DDF5939E1C932A4200EFB279 /* Main.storyboard */,
 				DDF593A11C932A4200EFB279 /* Assets.xcassets */,
 				DDF593A31C932A4200EFB279 /* LaunchScreen.storyboard */,
@@ -136,8 +151,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDF5939D1C932A4200EFB279 /* ViewController.swift in Sources */,
+				DDF593B31C933EB200EFB279 /* GifterController.swift in Sources */,
+				DDF593B61C933ECD00EFB279 /* RandomizeController.swift in Sources */,
+				DDF593B81C933EEC00EFB279 /* AddGifterViewController.swift in Sources */,
+				DDF593B11C933EA200EFB279 /* Gifter.swift in Sources */,
 				DDF5939B1C932A4200EFB279 /* AppDelegate.swift in Sources */,
+				DDF593AD1C933CC400EFB279 /* GifterListViewController.swift in Sources */,
+				DDF593AF1C933DD400EFB279 /* GifterCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +307,7 @@
 				DDF593AB1C932A4200EFB279 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
