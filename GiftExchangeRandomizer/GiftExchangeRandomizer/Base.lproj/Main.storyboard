@@ -120,62 +120,6 @@
             </objects>
             <point key="canvasLocation" x="2797" y="377"/>
         </scene>
-        <!--Add Gifter View Controller-->
-        <scene sceneID="kKC-OY-voV">
-            <objects>
-                <viewController id="Ecg-AZ-Lrb" customClass="AddGifterViewController" customModule="GiftExchangeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aCI-rv-Q0c"/>
-                        <viewControllerLayoutGuide type="bottom" id="0nc-CC-NmY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LNq-bW-gFl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thd-wa-Kun">
-                                <rect key="frame" x="203" y="369" width="195" height="62"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="40"/>
-                                <state key="normal" title="Add Gifter">
-                                    <color key="titleColor" red="0.31481724620000001" green="0.6754448529" blue="0.38933155159999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="addGifterButtonTapped:" destination="Ecg-AZ-Lrb" eventType="touchUpInside" id="ylP-cu-bx4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1By-NQ-elg">
-                                <rect key="frame" x="276" y="493" width="48" height="30"/>
-                                <state key="normal" title="Cancel">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="cancelButtonTapped:" destination="Ecg-AZ-Lrb" eventType="touchUpInside" id="HHp-1C-Phe"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Gifter Name Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8UC-fn-d8w">
-                                <rect key="frame" x="20" y="285" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="thd-wa-Kun" firstAttribute="centerX" secondItem="1By-NQ-elg" secondAttribute="centerX" id="0nr-sM-hfp"/>
-                            <constraint firstItem="8UC-fn-d8w" firstAttribute="centerY" secondItem="LNq-bW-gFl" secondAttribute="centerY" id="ABg-iy-2oc"/>
-                            <constraint firstItem="1By-NQ-elg" firstAttribute="top" secondItem="thd-wa-Kun" secondAttribute="bottom" constant="62" id="BDr-dv-1Te"/>
-                            <constraint firstItem="8UC-fn-d8w" firstAttribute="trailing" secondItem="LNq-bW-gFl" secondAttribute="trailingMargin" id="D6N-Zy-TWG"/>
-                            <constraint firstItem="8UC-fn-d8w" firstAttribute="leading" secondItem="LNq-bW-gFl" secondAttribute="leadingMargin" id="hfX-6I-6JI"/>
-                            <constraint firstItem="thd-wa-Kun" firstAttribute="centerX" secondItem="8UC-fn-d8w" secondAttribute="centerX" id="ujS-qV-CWe"/>
-                            <constraint firstItem="thd-wa-Kun" firstAttribute="top" secondItem="8UC-fn-d8w" secondAttribute="bottom" constant="54" id="wne-TV-SJo"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textField" destination="8UC-fn-d8w" id="uUs-5O-Dc1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KH2-XW-114" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3522" y="377"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gA3-Iz-vx3">
             <objects>

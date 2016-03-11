@@ -37,7 +37,7 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         
-        let alertController = UIAlertController(title: "Add a name", message: "Add a name to be randomized.", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Add a Gifter", message: "Add a gifter's name to be randomized.", preferredStyle: .Alert)
         
         alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
             textField.placeholder = "Enter name here..."
@@ -125,5 +125,8 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     */
     
 }
+
+
+
 
  

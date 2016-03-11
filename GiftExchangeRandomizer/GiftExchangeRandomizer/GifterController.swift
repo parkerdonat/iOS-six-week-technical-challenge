@@ -29,15 +29,26 @@ class GifterController {
     }
     
     func removeName(name: Gifter) {
-        
+        if let nameIndex = nameEntries.indexOf(name) {
+            nameEntries.removeAtIndex(nameIndex)
+            
+            self.saveToPersistentStorage()
+        }
     }
     
     func loadFromPersistentStorage() {
+        let entryDictionariesFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey(kNameKey) as? [[String: AnyObject]]
+        
+        if let entryDictionaries = entryDictionariesFromDefaults {
+            self.nameEntries = entryDictionaries.map({Gifter(dictionary: $0)!})
+        }
         
     }
     
     func saveToPersistentStorage() {
+        let entryDictionaries = self.nameEntries.map({$0.dictionaryCopy()})
         
+        NSUserDefaults.standardUserDefaults().setObject(entryDictionaries, forKey: kNameKey)
     }
     
 }
