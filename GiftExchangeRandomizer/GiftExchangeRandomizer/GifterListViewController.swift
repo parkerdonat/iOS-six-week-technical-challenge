@@ -49,7 +49,7 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
 //        
 //        let itemDemensionHeight = viewHeightMinusMargin
         
-        return CGSizeMake(200, 50)
+        return CGSizeMake(190, 50)
         
     }
     
@@ -69,6 +69,9 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         // configure the cell
         let gifter = gifters[indexPath.item]
         gifterCell.gifterName.text = gifter
+        
+        gifterCell.gifterName.layer.masksToBounds = true
+        gifterCell.gifterName.layer.cornerRadius = 8.0
         
         return gifterCell
         
