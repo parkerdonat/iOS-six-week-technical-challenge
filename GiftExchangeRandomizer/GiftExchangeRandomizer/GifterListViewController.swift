@@ -35,6 +35,35 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         collectionView.reloadData()
     }
     
+    @IBAction func addButtonPressed(sender: AnyObject) {
+        
+        let alertController = UIAlertController(title: "Add a name", message: "Add a name to be randomized.", preferredStyle: .Alert)
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
+            textField.placeholder = "Enter name here..."
+        
+        let defaultAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert) -> Void in
+           
+        }
+        
+        let okAction = UIAlertAction(title: "Add", style: .Default) { (alert) -> Void in
+            
+            let newName = Gifter(name: (alertController.textFields?.first?.text)!)
+            GifterController.sharedInstance.addName(newName)
+
+            self.collectionView.reloadData()
+        }
+        
+        // add the actions to the view controller. Notice cancel will always be last.
+        alertController.addAction(defaultAction)
+        alertController.addAction(okAction)
+        
+        // you need to call the function to show the alert
+        self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
