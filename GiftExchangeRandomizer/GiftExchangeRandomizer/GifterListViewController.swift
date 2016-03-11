@@ -12,7 +12,9 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     
     private let kMargin = CGFloat(0.0)
     
-    var gifters = ["Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb"]
+//    var gifters = ["Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb"]
+    
+    static var gifters = [Gifter]()
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -25,6 +27,12 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,7 +66,7 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return gifters.count
+        return GifterController.sharedInstance.nameEntries.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -67,8 +75,8 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         let gifterCell = collectionView.dequeueReusableCellWithReuseIdentifier("gifterCell", forIndexPath: indexPath) as! GifterCollectionViewCell
         
         // configure the cell
-        let gifter = gifters[indexPath.item]
-        gifterCell.gifterName.text = gifter
+        let gifter = GifterController.sharedInstance.nameEntries[indexPath.item]
+        gifterCell.gifterName.text = gifter.name
         
         gifterCell.gifterName.layer.masksToBounds = true
         gifterCell.gifterName.layer.cornerRadius = 8.0

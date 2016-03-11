@@ -23,12 +23,27 @@ class AddGifterViewController: UIViewController {
     }
     
     @IBAction func addGifterButtonTapped(sender: AnyObject) {
+        if let gifter = self.gifter {
+            gifter.name = self.textField.text!
+        } else {
+            let newName = Gifter(name: self.textField.text!)
+            GifterController.sharedInstance.addName(newName)
+            self.gifter = newName
+        }
         
+        self.navigationController?.popViewControllerAnimated(true)
     
     }
 
     @IBAction func cancelButtonTapped(sender: AnyObject) {
         
+        textField.text = ""
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func updateWithGifterName(name: Gifter) {
+        self.gifter = name
+        self.textField.text = name.name
     }
     /*
     // MARK: - Navigation

@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class RandomizeController {
+    var randomName: [Gifter] = []
+    
+    func randomizeTheArray() {
+        
+    }
+}

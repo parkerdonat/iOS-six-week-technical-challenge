@@ -13,7 +13,6 @@ class Gifter: Equatable {
     private let kGifterName = "name"
     
     var name: String
-
     
     init(name: String) {
         self.name = name
