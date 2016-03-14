@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GameKit
+//import GameKit
 
 class GifterListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -15,12 +15,11 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     
     //    var gifters = ["Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb"]
     
-    static var gifters = [Gifter]()
-    var randomGifter = []
+    //static var gifters = [Gifter]()
+    //var randomGifter = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,19 +37,40 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     
+    @IBAction func editButtonPressed(sender: AnyObject) {
+        
+        if(self.navigationItem.leftBarButtonItem?.title == "Edit"){
+            
+            self.navigationItem.leftBarButtonItem?.title = "Done"
+            
+            for item in self.collectionView!.visibleCells() as! [GifterCollectionViewCell] {
+                
+                let indexPath : NSIndexPath = self.collectionView!.indexPathForCell(item as GifterCollectionViewCell)!
+                let cell : GifterCollectionViewCell = self.collectionView!.cellForItemAtIndexPath(indexPath) as! GifterCollectionViewCell
+                
+                //Close Button
+                let close : UIButton = cell.viewWithTag(102) as! UIButton
+                close.hidden = false
+            }
+        } else {
+            self.navigationItem.leftBarButtonItem?.title = "Edit"
+            self.collectionView?.reloadData()
+        }
+    }
+    
     @IBAction func randomizedButtonPressed(sender: AnyObject) {
         
-        self.performSegueWithIdentifier("toDetail", sender: self)
+//        self.performSegueWithIdentifier("toDetail", sender: self)
         GifterController.sharedInstance.shuffleNames()
         //GifterController.sharedInstance.randomArray()
         
     }
     
-    func getRandomName() -> String {
-        let randomize = GKRandomSource.sharedRandom().nextIntWithUpperBound(randomGifter.count)
-        
-        return randomGifter[randomize] as! String
-    }
+//    func getRandomName() -> String {
+//        let randomize = GKRandomSource.sharedRandom().nextIntWithUpperBound(randomGifter.count)
+//        
+//        return randomGifter[randomize] as! String
+//    }
     
     @IBAction func addButtonPressed(sender: AnyObject) {
         
@@ -90,19 +110,6 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
-        // Determin how big our screen is
-        
-        //        let viewWidth = view.frame.width
-        //        let viewWidthMinusMargin = viewWidth - 2 * kMargin
-        
-        //        let itemDimensionWidth = viewWidthMinusMargin / 2.0 // determines how many cells are dsiplayed
-        
-        //
-        //        let viewHeight = view.frame.width
-        //        let viewHeightMinusMargin = viewHeight - 2 * kMargin
-        //
-        //        let itemDemensionHeight = viewHeightMinusMargin
-        
         return CGSizeMake(190, 50)
         
     }
@@ -127,18 +134,27 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         gifterCell.gifterName.layer.masksToBounds = true
         gifterCell.gifterName.layer.cornerRadius = 8.0
         
+        if self.navigationItem.leftBarButtonItem!.title == "Edit" {
+            gifterCell.closeButton?.hidden = true
+        } else {
+            gifterCell.closeButton?.hidden = false
+        }
+        
+        gifterCell.closeButton?.layer.setValue(indexPath.row, forKey: "index")
+        
+        gifterCell.closeButton?.addTarget(self, action: "deletePhoto:", forControlEvents: UIControlEvents.TouchUpInside)
+        
         return gifterCell
         
     }
     
-    
-    //    // MARK: - Navigation
-    //
-    //    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //    
-    //        
-    //        
-    //    }
+    func deletePhoto(sender: UIButton) {
+        let i: Int = (sender.layer.valueForKey("index")) as! Int
+        
+        GifterController.sharedInstance.removeNameAtIndex(i)
+        
+        self.collectionView!.reloadData()
+    }
+
     
 }

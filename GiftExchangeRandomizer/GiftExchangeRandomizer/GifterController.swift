@@ -14,7 +14,7 @@ class GifterController {
     
     static let sharedInstance = GifterController()
     
-    var nameEntries: [Gifter] = GifterListViewController.gifters
+    var nameEntries: [Gifter] = []
     var randomName: [Gifter] = []
     
     init() {
@@ -30,12 +30,11 @@ class GifterController {
         self.saveToPersistentStorage()
     }
     
-    func removeName(name: Gifter) {
-        if let nameIndex = nameEntries.indexOf(name) {
-            nameEntries.removeAtIndex(nameIndex)
+    func removeNameAtIndex(index: Int) {
+       
+            nameEntries.removeAtIndex(index)
             
             self.saveToPersistentStorage()
-        }
     }
     
     func loadFromPersistentStorage() {

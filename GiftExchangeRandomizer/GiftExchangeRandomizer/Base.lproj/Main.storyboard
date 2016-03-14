@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -32,6 +33,7 @@
                                         </state>
                                         <connections>
                                             <action selector="randomizedButtonPressed:" destination="4HN-x6-tWv" eventType="touchUpInside" id="YiJ-IR-vGI"/>
+                                            <segue destination="ntt-gE-VBL" kind="show" identifier="toDetail" id="QqP-hQ-FZR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -77,18 +79,31 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
+                                                <button hidden="YES" opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OVT-GD-bOO">
+                                                    <rect key="frame" x="243" y="14" width="21" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="YZb-rH-BfW"/>
+                                                        <constraint firstAttribute="width" constant="21" id="Z4b-ja-awc"/>
+                                                        <constraint firstAttribute="width" secondItem="OVT-GD-bOO" secondAttribute="height" multiplier="1:1" id="v2n-Tv-Sac"/>
+                                                    </constraints>
+                                                    <state key="normal" image="close">
+                                                        <color key="titleShadowColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="EHs-Rl-LgC" firstAttribute="bottom" secondItem="BcA-6t-i5c" secondAttribute="bottomMargin" id="4IG-zI-23r"/>
                                             <constraint firstItem="EHs-Rl-LgC" firstAttribute="top" secondItem="BcA-6t-i5c" secondAttribute="topMargin" id="VR2-w7-l2Y"/>
+                                            <constraint firstItem="OVT-GD-bOO" firstAttribute="top" secondItem="EHs-Rl-LgC" secondAttribute="top" constant="6" id="f6Z-1x-JIW"/>
+                                            <constraint firstItem="OVT-GD-bOO" firstAttribute="trailing" secondItem="EHs-Rl-LgC" secondAttribute="trailing" constant="-9" id="gBt-dL-ckf"/>
                                             <constraint firstItem="EHs-Rl-LgC" firstAttribute="leading" secondItem="BcA-6t-i5c" secondAttribute="leadingMargin" id="kxS-fl-0i5"/>
                                             <constraint firstItem="EHs-Rl-LgC" firstAttribute="trailing" secondItem="BcA-6t-i5c" secondAttribute="trailingMargin" id="xx4-Eh-BVo"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="closeButton" destination="OVT-GD-bOO" id="Mxt-Fa-NcZ"/>
                                             <outlet property="gifterName" destination="EHs-Rl-LgC" id="WDZ-hR-NVn"/>
-                                            <segue destination="ntt-gE-VBL" kind="show" identifier="toDetail" id="8sl-0c-lM9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -108,13 +123,20 @@
                             <constraint firstItem="EfN-ga-dkE" firstAttribute="leading" secondItem="K4Q-3D-3Dv" secondAttribute="leading" id="eyo-vw-Uta"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Gift Exchange Randomizer" id="pGj-Qu-0WA">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="H1W-dr-L8O">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="4HN-x6-tWv" id="G6g-xG-dRR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wc3-31-twS">
                             <connections>
                                 <action selector="addButtonPressed:" destination="4HN-x6-tWv" id="rbG-Wm-iza"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="EfN-ga-dkE" id="Waq-j3-pUQ"/>
                         <outlet property="flowLayout" destination="8It-pV-4q5" id="cMy-fS-kdB"/>
@@ -225,4 +247,7 @@
             <point key="canvasLocation" x="2129" y="377"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="256" height="256"/>
+    </resources>
 </document>
