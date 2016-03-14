@@ -26,10 +26,13 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="263" id="JTQ-yH-c4j"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="27"/>
+                                        <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="27"/>
                                         <state key="normal" title="Randomize Gifters!">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="randomizedButtonPressed:" destination="4HN-x6-tWv" eventType="touchUpInside" id="YiJ-IR-vGI"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,7 +59,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gifterCell" id="BcA-6t-i5c" customClass="GifterCollectionViewCell" customModule="GiftExchangeRandomizer" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="64" width="281" height="70"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="281" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="281" height="70"/>
@@ -85,6 +88,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="gifterName" destination="EHs-Rl-LgC" id="WDZ-hR-NVn"/>
+                                            <segue destination="ntt-gE-VBL" kind="show" identifier="toDetail" id="8sl-0c-lM9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -119,6 +123,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="med-lE-LYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2797" y="377"/>
+        </scene>
+        <!--Results-->
+        <scene sceneID="BQa-62-tkp">
+            <objects>
+                <viewController id="ntt-gE-VBL" customClass="ResultsViewController" customModule="GiftExchangeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ejl-vf-gMb"/>
+                        <viewControllerLayoutGuide type="bottom" id="iiu-I2-bTm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3R8-jp-N8F">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bf6-FV-KSa">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="57s-3w-9tx"/>
+                                    <constraint firstAttribute="width" constant="600" id="xn5-1d-5OY"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cK0-JV-SAu" userLabel="Flow Layout">
+                                    <size key="itemSize" width="281" height="70"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="resultCell" id="H4h-9I-upV" customClass="ResultsCollectionViewCell" customModule="GiftExchangeRandomizer" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="64" width="281" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="281" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g7k-vL-XBm">
+                                                    <rect key="frame" x="8" y="8" width="265" height="54"/>
+                                                    <color key="backgroundColor" red="0.31481724620000001" green="0.6754448529" blue="0.38933155159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Didot-Bold" family="Didot" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="g7k-vL-XBm" firstAttribute="trailing" secondItem="H4h-9I-upV" secondAttribute="trailingMargin" id="4xw-jU-MAb"/>
+                                            <constraint firstItem="g7k-vL-XBm" firstAttribute="leading" secondItem="H4h-9I-upV" secondAttribute="leadingMargin" id="8TS-sA-T2x"/>
+                                            <constraint firstItem="g7k-vL-XBm" firstAttribute="bottom" secondItem="H4h-9I-upV" secondAttribute="bottomMargin" id="wFp-up-Vsj"/>
+                                            <constraint firstItem="g7k-vL-XBm" firstAttribute="top" secondItem="H4h-9I-upV" secondAttribute="topMargin" id="zct-qh-eGE"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="resultLabel" destination="g7k-vL-XBm" id="g7e-8p-p3H"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ntt-gE-VBL" id="1df-fD-FPy"/>
+                                    <outlet property="delegate" destination="ntt-gE-VBL" id="0oD-O1-mGz"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bf6-FV-KSa" firstAttribute="leading" secondItem="3R8-jp-N8F" secondAttribute="leading" id="FBV-0g-YPG"/>
+                            <constraint firstAttribute="trailing" secondItem="Bf6-FV-KSa" secondAttribute="trailing" id="hco-8J-Rw0"/>
+                            <constraint firstItem="Bf6-FV-KSa" firstAttribute="top" secondItem="3R8-jp-N8F" secondAttribute="top" id="oUK-Vo-1oI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Results" id="vQI-xv-3ub"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Bf6-FV-KSa" id="yph-v9-tNg"/>
+                        <outlet property="flowLayout" destination="cK0-JV-SAu" id="LoJ-8e-awY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xAZ-xX-kxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3504" y="377"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gA3-Iz-vx3">

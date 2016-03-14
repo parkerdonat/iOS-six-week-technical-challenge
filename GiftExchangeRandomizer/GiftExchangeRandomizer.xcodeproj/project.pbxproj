@@ -15,8 +15,8 @@
 		DDF593AF1C933DD400EFB279 /* GifterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593AE1C933DD400EFB279 /* GifterCollectionViewCell.swift */; };
 		DDF593B11C933EA200EFB279 /* Gifter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B01C933EA200EFB279 /* Gifter.swift */; };
 		DDF593B31C933EB200EFB279 /* GifterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B21C933EB200EFB279 /* GifterController.swift */; };
-		DDF593B61C933ECD00EFB279 /* RandomizeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B51C933ECD00EFB279 /* RandomizeController.swift */; };
-		DDF593B81C933EEC00EFB279 /* AddGifterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593B71C933EEC00EFB279 /* AddGifterViewController.swift */; };
+		DDF593C71C966EB400EFB279 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593C51C966EB400EFB279 /* ResultsViewController.swift */; };
+		DDF593C81C966EB400EFB279 /* ResultsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF593C61C966EB400EFB279 /* ResultsCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		DDF593AE1C933DD400EFB279 /* GifterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifterCollectionViewCell.swift; sourceTree = "<group>"; };
 		DDF593B01C933EA200EFB279 /* Gifter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gifter.swift; sourceTree = "<group>"; };
 		DDF593B21C933EB200EFB279 /* GifterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifterController.swift; sourceTree = "<group>"; };
-		DDF593B51C933ECD00EFB279 /* RandomizeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomizeController.swift; sourceTree = "<group>"; };
-		DDF593B71C933EEC00EFB279 /* AddGifterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGifterViewController.swift; sourceTree = "<group>"; };
+		DDF593C51C966EB400EFB279 /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		DDF593C61C966EB400EFB279 /* ResultsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +67,10 @@
 				DDF5939A1C932A4200EFB279 /* AppDelegate.swift */,
 				DDF593AC1C933CC400EFB279 /* GifterListViewController.swift */,
 				DDF593AE1C933DD400EFB279 /* GifterCollectionViewCell.swift */,
-				DDF593B71C933EEC00EFB279 /* AddGifterViewController.swift */,
 				DDF593B01C933EA200EFB279 /* Gifter.swift */,
 				DDF593B21C933EB200EFB279 /* GifterController.swift */,
-				DDF593B51C933ECD00EFB279 /* RandomizeController.swift */,
+				DDF593C51C966EB400EFB279 /* ResultsViewController.swift */,
+				DDF593C61C966EB400EFB279 /* ResultsCollectionViewCell.swift */,
 				DDF5939E1C932A4200EFB279 /* Main.storyboard */,
 				DDF593A11C932A4200EFB279 /* Assets.xcassets */,
 				DDF593A31C932A4200EFB279 /* LaunchScreen.storyboard */,
@@ -152,12 +152,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDF593B31C933EB200EFB279 /* GifterController.swift in Sources */,
-				DDF593B61C933ECD00EFB279 /* RandomizeController.swift in Sources */,
-				DDF593B81C933EEC00EFB279 /* AddGifterViewController.swift in Sources */,
 				DDF593B11C933EA200EFB279 /* Gifter.swift in Sources */,
 				DDF5939B1C932A4200EFB279 /* AppDelegate.swift in Sources */,
 				DDF593AD1C933CC400EFB279 /* GifterListViewController.swift in Sources */,
 				DDF593AF1C933DD400EFB279 /* GifterCollectionViewCell.swift in Sources */,
+				DDF593C81C966EB400EFB279 /* ResultsCollectionViewCell.swift in Sources */,
+				DDF593C71C966EB400EFB279 /* ResultsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

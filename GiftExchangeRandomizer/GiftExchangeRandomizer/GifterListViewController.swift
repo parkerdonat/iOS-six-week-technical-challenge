@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import GameKit
 
 class GifterListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     private let kMargin = CGFloat(0.0)
     
-//    var gifters = ["Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb"]
+    //    var gifters = ["Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb", "Parker", "Kaleo", "Daniel", "Caleb"]
     
     static var gifters = [Gifter]()
+    var randomGifter = []
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -35,35 +37,50 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         collectionView.reloadData()
     }
     
+    
+    @IBAction func randomizedButtonPressed(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("toDetail", sender: self)
+        GifterController.sharedInstance.shuffleNames()
+        //GifterController.sharedInstance.randomArray()
+        
+    }
+    
+    func getRandomName() -> String {
+        let randomize = GKRandomSource.sharedRandom().nextIntWithUpperBound(randomGifter.count)
+        
+        return randomGifter[randomize] as! String
+    }
+    
     @IBAction func addButtonPressed(sender: AnyObject) {
         
         let alertController = UIAlertController(title: "Add a Gifter", message: "Add a gifter's name to be randomized.", preferredStyle: .Alert)
         
         alertController.addTextFieldWithConfigurationHandler { (textField) -> Void in
             textField.placeholder = "Enter name here..."
-        
-        let defaultAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert) -> Void in
-           
-        }
-        
-        let okAction = UIAlertAction(title: "Add", style: .Default) { (alert) -> Void in
             
-            let newName = Gifter(name: (alertController.textFields?.first?.text)!)
-            GifterController.sharedInstance.addName(newName)
-
-            self.collectionView.reloadData()
-        }
-        
-        // add the actions to the view controller. Notice cancel will always be last.
-        alertController.addAction(defaultAction)
-        alertController.addAction(okAction)
-        
-        // you need to call the function to show the alert
-        self.presentViewController(alertController, animated: true, completion: nil)
+            let defaultAction = UIAlertAction(title: "Cancel", style: .Cancel) { (alert) -> Void in
+                
+            }
+            
+            let okAction = UIAlertAction(title: "Add", style: .Default) { (alert) -> Void in
+                
+                let newName = Gifter(name: (alertController.textFields?.first?.text)!)
+                GifterController.sharedInstance.addName(newName)
+                
+                self.collectionView.reloadData()
+            }
+            
+            // add the actions to the view controller. Notice cancel will always be last.
+            alertController.addAction(defaultAction)
+            alertController.addAction(okAction)
+            
+            // you need to call the function to show the alert
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
         
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -75,16 +92,16 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         
         // Determin how big our screen is
         
-//        let viewWidth = view.frame.width
-//        let viewWidthMinusMargin = viewWidth - 2 * kMargin
+        //        let viewWidth = view.frame.width
+        //        let viewWidthMinusMargin = viewWidth - 2 * kMargin
         
-//        let itemDimensionWidth = viewWidthMinusMargin / 2.0 // determines how many cells are dsiplayed
+        //        let itemDimensionWidth = viewWidthMinusMargin / 2.0 // determines how many cells are dsiplayed
         
-//        
-//        let viewHeight = view.frame.width
-//        let viewHeightMinusMargin = viewHeight - 2 * kMargin
-//        
-//        let itemDemensionHeight = viewHeightMinusMargin
+        //
+        //        let viewHeight = view.frame.width
+        //        let viewHeightMinusMargin = viewHeight - 2 * kMargin
+        //
+        //        let itemDemensionHeight = viewHeightMinusMargin
         
         return CGSizeMake(190, 50)
         
@@ -114,19 +131,14 @@ class GifterListViewController: UIViewController, UICollectionViewDataSource, UI
         
     }
     
-    /*
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+    //    // MARK: - Navigation
+    //
+    //    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //    
+    //        
+    //        
+    //    }
     
 }
-
-
-
-
- 

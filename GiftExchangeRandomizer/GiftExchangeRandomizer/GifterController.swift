@@ -15,11 +15,13 @@ class GifterController {
     static let sharedInstance = GifterController()
     
     var nameEntries: [Gifter] = GifterListViewController.gifters
+    var randomName: [Gifter] = []
     
     init() {
-        self.nameEntries = []
-
+        
         self.loadFromPersistentStorage()
+        //self.randomArray()
+        self.shuffleNames()
     }
     
     func addName(name: Gifter) {
@@ -39,16 +41,46 @@ class GifterController {
     func loadFromPersistentStorage() {
         let entryDictionariesFromDefaults = NSUserDefaults.standardUserDefaults().objectForKey(kNameKey) as? [[String: AnyObject]]
         
-        if let entryDictionaries = entryDictionariesFromDefaults {
-            self.nameEntries = entryDictionaries.map({Gifter(dictionary: $0)!})
+        if let nameDictionaries = entryDictionariesFromDefaults {
+            self.nameEntries = nameDictionaries.map({Gifter(dictionary: $0)!})
         }
         
     }
     
     func saveToPersistentStorage() {
-        let entryDictionaries = self.nameEntries.map({$0.dictionaryCopy()})
+        let nameDictionaries = self.nameEntries.map({$0.dictionaryCopy()})
         
-        NSUserDefaults.standardUserDefaults().setObject(entryDictionaries, forKey: kNameKey)
+        NSUserDefaults.standardUserDefaults().setObject(nameDictionaries, forKey: kNameKey)
     }
+    
+    // Another way to randomize array
+    
+        func shuffleArray<T>(var array: [T]) -> [T] {
+            for index in (0..<array.count) {
+                let randomIndex = Int(arc4random_uniform(UInt32(index)))
+                (array[index], array[randomIndex]) = (array[randomIndex], array[index])
+            }
+    
+            return array
+        }
+    
+    
+        func shuffleNames() {
+            // call shuffle func and set to random names array
+            randomName = shuffleArray(nameEntries)
+        }
+    
+//    func randomArray() {
+//        randomName = nameEntries
+//        
+//        for item in randomName {
+//            if let index = randomName.indexOf(item) {
+//                let randomIndex = Int(arc4random_uniform(UInt32(index + 2)))
+//                let removedName = randomName.removeAtIndex(index)
+//                randomName.insert(removedName, atIndex: randomIndex)
+//                
+//            }
+//        }
+//    }
     
 }
